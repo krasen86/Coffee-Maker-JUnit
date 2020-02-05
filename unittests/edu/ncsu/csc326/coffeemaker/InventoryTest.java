@@ -1,6 +1,7 @@
 package edu.ncsu.csc326.coffeemaker;
 
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
+import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,10 +24,6 @@ public class InventoryTest {
 		randNum = 1 + (int) Math.abs(Math.random()*99); //generate positive integer
 		i = new Inventory();
 
-		i.setCoffee(10);
-		i.setMilk(10);
-		i.setSugar(10);
-		i.setCoffee(10);
 	}
 
 	@AfterEach
@@ -36,7 +33,7 @@ public class InventoryTest {
 
 	@Test
 	void getChocolate() {
-		a.assertEquals(10, i.getChocolate());
+		a.assertEquals(15, i.getChocolate());
 	}
 
 	@Test
@@ -68,51 +65,153 @@ public class InventoryTest {
 
 	@Test
 	void getCoffee() {
-		a.assertEquals(10, i.getCoffee());
+		a.assertEquals(15, i.getCoffee());
 	}
 
 	@Test
 	void setCoffee() {
-
+		i.setCoffee(randNum);
+		a.assertEquals(randNum, i.getCoffee());
 	}
 
 	@Test
 	void addCoffee() {
+		try {
+			int initial = i.getCoffee();
+			i.addCoffee(randNum + "");
+			a.assertEquals(initial + randNum, i.getCoffee());
+		} catch (InventoryException e){
+			a.fail("Threw InventoryException error, when presented with a positive integer");
+		}
+	}
+
+	@Test
+	void addNegativeToCoffee() {
+		a.assertThrows(InventoryException.class, () -> i.addCoffee(-1+""));
+	}
+
+	@Test
+	void addInvalidToCoffee() {
+		a.assertThrows(InventoryException.class, () -> i.addCoffee("Seven"));
 	}
 
 	@Test
 	void getMilk() {
+		a.assertEquals(15, i.getMilk());
 	}
 
 	@Test
 	void setMilk() {
+		i.setMilk(randNum);
+		a.assertEquals(randNum, i.getMilk());
 	}
 
 	@Test
 	void addMilk() {
+		try {
+			int initial = i.getMilk();
+			i.addMilk(randNum + "");
+			a.assertEquals(initial + randNum, i.getMilk());
+		} catch (InventoryException e){
+			a.fail("Threw InventoryException error, when presented with a positive integer");
+		}
+	}
+
+	@Test
+	void addNegativeToMilk() {
+		a.assertThrows(InventoryException.class, () -> i.addMilk(-1+""));
+	}
+
+	@Test
+	void addInvalidToMilk() {
+		a.assertThrows(InventoryException.class, () -> i.addMilk("Seven"));
 	}
 
 	@Test
 	void getSugar() {
+		a.assertEquals(15, i.getSugar());
 	}
 
 	@Test
 	void setSugar() {
+		i.setSugar(randNum);
+		a.assertEquals(randNum, i.getSugar());
 	}
 
 	@Test
 	void addSugar() {
+		try {
+			int initial = i.getSugar();
+			i.addSugar(randNum + "");
+			a.assertEquals(initial + randNum, i.getSugar());
+		} catch (InventoryException e){
+			a.fail("Threw InventoryException error, when presented with a positive integer");
+		}
 	}
 
 	@Test
-	void enoughIngredients() {
+	void addNegativeToSugar() {
+		a.assertThrows(InventoryException.class, () -> i.addSugar(-1+""));
 	}
 
 	@Test
-	void useIngredients() {
+	void addInvalidToSugar() {
+		a.assertThrows(InventoryException.class, () -> i.addSugar("Seven"));
+	}
+
+	@Test
+	void enoughIngredients() throws RecipeException {
+		Recipe r = new Recipe();
+		r.setAmtChocolate("15");
+		r.setAmtCoffee("15");
+		r.setAmtMilk("15");
+		r.setAmtSugar("15");
+
+		a.assertTrue(i.enoughIngredients(r));
+
+		r.setAmtChocolate("16");
+
+		a.assertFalse(i.enoughIngredients(r));
+
+		r.setAmtChocolate("15");
+		r.setAmtCoffee("16");
+
+		a.assertFalse(i.enoughIngredients(r));
+
+		r.setAmtCoffee("15");
+		r.setAmtMilk("16");
+
+		a.assertFalse(i.enoughIngredients(r));
+
+		r.setAmtMilk("15");
+		r.setAmtSugar("16");
+
+		a.assertFalse(i.enoughIngredients(r));
+	}
+
+	@Test
+	void useIngredients() throws RecipeException {
+		Recipe r = new Recipe();
+		r.setAmtChocolate("10");
+		r.setAmtCoffee("10");
+		r.setAmtMilk("10");
+		r.setAmtSugar("10");
+
+		a.assertTrue(i.useIngredients(r));
+
+		a.assertEquals(5, i.getChocolate());
+		a.assertEquals(5, i.getCoffee());
+		a.assertEquals(5, i.getMilk());
+		a.assertEquals(5, i.getSugar());
+
+		a.assertFalse(i.useIngredients(r));
 	}
 
 	@Test
 	void testToString() {
+		a.assertEquals("Coffee: 15\n" +
+				"Milk: 15\n" +
+				"Sugar: 15\n" +
+				"Chocolate: 15\n", i.toString());
 	}
 }

@@ -20,6 +20,7 @@ public class Main {
      * Prints the main menu and handles user input for 
      * main menu commands.
      */
+
     public static void mainMenu() {
         System.out.println("1. Add a recipe");
         System.out.println("2. Delete a recipe");

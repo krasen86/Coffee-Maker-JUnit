@@ -18,11 +18,19 @@ public class InventoryTest {
 	Inventory i;
 	Assertions a;
 	int randNum = -1;
+	Recipe r;
+
 
 	@BeforeEach
-	void setUp() {
+	void setUp() throws RecipeException {
 		randNum = 1 + (int) Math.abs(Math.random()*99); //generate positive integer
 		i = new Inventory();
+
+		r = new Recipe();
+		r.setAmtChocolate("10");
+		r.setAmtCoffee("10");
+		r.setAmtMilk("10");
+		r.setAmtSugar("10");
 
 	}
 
@@ -161,42 +169,27 @@ public class InventoryTest {
 
 	@Test
 	void enoughIngredients() throws RecipeException {
-		Recipe r = new Recipe();
-		r.setAmtChocolate("15");
-		r.setAmtCoffee("15");
-		r.setAmtMilk("15");
-		r.setAmtSugar("15");
 
 		a.assertTrue(i.enoughIngredients(r));
 
 		r.setAmtChocolate("16");
-
 		a.assertFalse(i.enoughIngredients(r));
 
 		r.setAmtChocolate("15");
 		r.setAmtCoffee("16");
-
 		a.assertFalse(i.enoughIngredients(r));
 
 		r.setAmtCoffee("15");
 		r.setAmtMilk("16");
-
 		a.assertFalse(i.enoughIngredients(r));
 
 		r.setAmtMilk("15");
 		r.setAmtSugar("16");
-
 		a.assertFalse(i.enoughIngredients(r));
 	}
 
 	@Test
-	void useIngredients() throws RecipeException {
-		Recipe r = new Recipe();
-		r.setAmtChocolate("10");
-		r.setAmtCoffee("10");
-		r.setAmtMilk("10");
-		r.setAmtSugar("10");
-
+	void useIngredients() {
 		a.assertTrue(i.useIngredients(r));
 
 		a.assertEquals(5, i.getChocolate());

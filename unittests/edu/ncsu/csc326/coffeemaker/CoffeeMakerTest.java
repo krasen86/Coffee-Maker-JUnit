@@ -4,8 +4,8 @@ import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import junit.framework.TestCase;
 
 /**
- * 
- * @author Sarah Heckman
+ *
+ * @author unitTesters
  *
  * Unit tests for CoffeeMaker class.
  */

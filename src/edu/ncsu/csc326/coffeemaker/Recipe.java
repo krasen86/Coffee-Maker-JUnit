@@ -32,7 +32,7 @@ public class Recipe {
 		return amtChocolate;
 	}
     /**
-	 * @param amtChocolate   The amtChocolate to set.
+	 * @param chocolate   The amtChocolate to set.
 	 */
     public void setAmtChocolate(String chocolate) throws RecipeException {
     	int amtChocolate = 0;
@@ -54,7 +54,7 @@ public class Recipe {
 		return amtCoffee;
 	}
     /**
-	 * @param amtCoffee   The amtCoffee to set.
+	 * @param coffee   The amtCoffee to set.
 	 */
     public void setAmtCoffee(String coffee) throws RecipeException {
     	int amtCoffee = 0;
@@ -76,7 +76,7 @@ public class Recipe {
 		return amtMilk;
 	}
     /**
-	 * @param amtMilk   The amtMilk to set.
+	 * @param milk   The amtMilk to set.
 	 */
     public void setAmtMilk(String milk) throws RecipeException{
     	int amtMilk = 0;
@@ -98,7 +98,7 @@ public class Recipe {
 		return amtSugar;
 	}
     /**
-	 * @param amtSugar   The amtSugar to set.
+	 * @param sugar   The amtSugar to set.
 	 */
     public void setAmtSugar(String sugar) throws RecipeException {
     	int amtSugar = 0;

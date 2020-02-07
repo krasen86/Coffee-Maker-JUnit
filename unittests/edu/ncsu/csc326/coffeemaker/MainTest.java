@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.*;
@@ -14,16 +15,17 @@ import java.io.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(PowerMockRunner.class)
+@PrepareForTest(Main.class)
 public class MainTest{
 
     Assertions a;
-    Main main;
     Main mock;
 
     @BeforeEach
     void setUp() throws Exception {
-        main = mock(Main.class);
-        mock = PowerMockito.spy(main);
+//        Main main = mock(Main.class);
+//        mock = PowerMockito.spy(main);
+        mock = PowerMockito.spy(new Main());
         PowerMockito.doReturn(returnValue()).when(mock, "inputOutput", ArgumentMatchers.any()); //(mock, "inputOutput", ArgumentMatchers.anyString());
 //        PowerMockito.verifyPrivate(mock, Mockito.times(1).)
     }
@@ -31,7 +33,6 @@ public class MainTest{
     String returnValue(){
          return "0";
     }
-
 
     @AfterEach
     void tearDown() {

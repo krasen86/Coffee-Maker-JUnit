@@ -207,4 +207,5 @@ public class InventoryTest {
 				"Sugar: 15\n" +
 				"Chocolate: 15\n", i.toString());
 	}
+
 }

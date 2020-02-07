@@ -38,6 +38,7 @@ public class CoffeeMaker {
 	 * @param recipeToDelete
 	 * @return String
 	 */
+
 	public String deleteRecipe(int recipeToDelete) {
 		return recipeBook.deleteRecipe(recipeToDelete);
 	}
@@ -49,7 +50,9 @@ public class CoffeeMaker {
 	 * @param r
 	 * @return String
 	 */
+
 	public String editRecipe(int recipeToEdit, Recipe r) {
+
 		return recipeBook.editRecipe(recipeToEdit, r);
 	}
     

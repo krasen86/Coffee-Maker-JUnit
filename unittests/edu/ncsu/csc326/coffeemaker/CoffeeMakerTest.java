@@ -129,5 +129,64 @@ public class CoffeeMakerTest {
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory( null,"test","","a"));
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("-3","-6","-4","-4"));
 
+        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("-2","10","10","10"));
+        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("10","-2","10","10"));
+        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("10","10","-2","10"));
+        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory( "10","10","10","-2"));
+    }
+    @Test
+    void testAddInventoryWithZero(){
+        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("0","0","0","0"));
+    }
+
+    @Test
+    void testMakeCoffee() throws RecipeException {
+        recipeTest1.setPrice("50");
+        coffeeMaker.addRecipe(recipeTest1);
+        int testChange = coffeeMaker.makeCoffee(0,100);
+        Assertions.assertEquals(50, testChange);
+    }
+
+    @Test
+    void testMakeCoffeeNoRecipe(){
+        recipeBook.getRecipes()[0] = null;
+        int testChange = coffeeMaker.makeCoffee(0,100);
+        Assertions.assertEquals(100, testChange);
+    }
+
+    @Test
+    void testMakeCoffeeInvalidRecipeInput(){
+        int testChange = coffeeMaker.makeCoffee(10,100);
+        Assertions.assertEquals(100, testChange);
+    }
+
+    @Test
+    void testMakeCoffeeInvalidPriceInput() throws RecipeException {
+        recipeTest1.setPrice("50");
+        coffeeMaker.addRecipe(recipeTest1);
+        int testChange = coffeeMaker.makeCoffee(0,-3);
+        Assertions.assertEquals(0, testChange);
+    }
+
+    @Test
+    void testMakeCoffeeInvalidSmallerPriceInput() throws RecipeException{
+        recipeTest1.setPrice("50");
+        coffeeMaker.addRecipe(recipeTest1);
+        int testChange = coffeeMaker.makeCoffee(0,10);
+        Assertions.assertEquals(10, testChange);
+
+    }
+
+    @Test
+    void testMakeCoffeeNoInventory() throws RecipeException{
+        recipeTest1.setPrice("50");
+        coffeeMaker.addRecipe(recipeTest1);
+        inventory.setSugar(0);
+        inventory.setCoffee(0);
+        inventory.setChocolate(0);
+        inventory.setMilk(0);
+        int testChange = coffeeMaker.makeCoffee(0,100);
+        Assertions.assertEquals(100, testChange);
+
     }
 }

@@ -30,6 +30,7 @@ public class Inventory {
      * the inventory.
      * @return int
      */
+
     public int getChocolate() {
         return chocolate;
     }

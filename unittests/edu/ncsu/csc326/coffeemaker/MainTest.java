@@ -4,18 +4,34 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.*;
 
+import static org.mockito.Mockito.*;
+
+@RunWith(PowerMockRunner.class)
 public class MainTest{
 
     Assertions a;
     Main main;
+    Main mock;
 
     @BeforeEach
-    void setUp() {
-        main = new Main();
+    void setUp() throws Exception {
+        main = mock(Main.class);
+        mock = PowerMockito.spy(main);
+        PowerMockito.doReturn(returnValue()).when(mock, "inputOutput", ArgumentMatchers.any()); //(mock, "inputOutput", ArgumentMatchers.anyString());
+//        PowerMockito.verifyPrivate(mock, Mockito.times(1).)
     }
+
+    String returnValue(){
+         return "0";
+    }
+
 
     @AfterEach
     void tearDown() {
@@ -24,8 +40,7 @@ public class MainTest{
 
     @Test
     void testExitMethodMainMenu() throws IOException {
-//        setInputStream("1\nA Recipe\n23\n2\n2\n1\n0\n0");
-//        main.mainMenu();
+      Main.mainMenu();
     }
 
     @Test

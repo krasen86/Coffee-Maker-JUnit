@@ -69,12 +69,20 @@ public class RecipeBookTest {
     }
 
     @Test
-    void testEditRecipe(){
+    void testEditRecipe() throws RecipeException {
         recipeBook.addRecipe(recipeTest1);
+        Recipe testRecipe = new Recipe();
+        testRecipe.setName("Tea");
+        testRecipe.setAmtChocolate("0");
+        testRecipe.setAmtCoffee("3");
+        testRecipe.setAmtMilk("1");
+        testRecipe.setAmtSugar("1");
+        testRecipe.setPrice("50");
         recipeBook.editRecipe(0, recipeTest2);
-        recipeTest2.setName("Coffee");
-        Recipe[] recipes = recipeBook.getRecipes();
-        Assertions.assertEquals(recipes[0], recipeTest2);
+        Recipe[] recipes = new Recipe[4];
+        recipes[0] = testRecipe;
+        Assertions.assertArrayEquals(recipes, recipeBook.getRecipes());
+        Assertions.assertSame(testRecipe, recipeBook.getRecipes()[0]);
     }
 
     @Test

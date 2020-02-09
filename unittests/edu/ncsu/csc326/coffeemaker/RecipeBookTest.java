@@ -70,7 +70,7 @@ public class RecipeBookTest {
 
     @Test
     void deleteInvalidRecipe() {
-        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> recipeBook.deleteRecipe(recipeBook.getRecipes().length + 10));
+        Assertions.assertNull(recipeBook.deleteRecipe(recipeBook.getRecipes().length + 10));
     }
 
     @Test

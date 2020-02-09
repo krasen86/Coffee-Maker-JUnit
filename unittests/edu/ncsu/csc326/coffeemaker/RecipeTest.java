@@ -38,23 +38,18 @@ public class RecipeTest  {
     }
 
     @Test
-    void testGetAmtChocolateNegativeInt(){
-        a.assertNotEquals(-5,recipe.getAmtChocolate());
-    }
-
-    @Test
     void testSetAmtChocolate() throws RecipeException {
         recipe.setAmtChocolate("12");
         a.assertEquals(12,recipe.getAmtChocolate());
     }
 
     @Test
-    void testSetAmtChocolate_NegativeNumber(){
+    void testSetAmtChocolateNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate(-1+""));
     }
 
     @Test
-    void testSetAmtChocolate_Invalid(){
+    void testSetAmtChocolateInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate("Blah"));
     }
 
@@ -75,12 +70,12 @@ public class RecipeTest  {
     }
 
     @Test
-    void testSetAmtCoffee_NegativeNumber(){
+    void testSetAmtCoffeeNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee(-1+""));
     }
 
     @Test
-    void testSetAmtCoffee_Invalid(){
+    void testSetAmtCoffeeInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee("Blah"));
     }
 
@@ -101,12 +96,12 @@ public class RecipeTest  {
     }
 
     @Test
-    void testSetAmtMilk_NegativeNumber(){
+    void testSetAmtMilkNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk(-1+""));
     }
 
     @Test
-    void testSetAmtMilk_Invalid(){
+    void testSetAmtMilkInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk("Blah"));
     }
 
@@ -127,12 +122,12 @@ public class RecipeTest  {
     }
 
     @Test
-    void testSetAmtSugar_NegativeNumber(){
+    void testSetAmtSugarNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar(-1+""));
     }
 
     @Test
-    void testSetAmtSugar_Invalid(){
+    void testSetAmtSugarInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar("Blah"));
     }
 
@@ -153,7 +148,7 @@ public class RecipeTest  {
     }
 
     @Test
-    void testSetName_Null(){
+    void testSetNameNull(){
         recipe.setName(null);
         a.assertNotNull(recipe.getName());
     }
@@ -170,13 +165,18 @@ public class RecipeTest  {
     }
 
     @Test
-    void testSetPrice_NegativeNumber(){
+    void testSetPriceNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setPrice(-1+""));
     }
 
     @Test
-    void testSetPrice_Invalid(){
+    void testSetPriceInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setPrice("Blah"));
+    }
+
+    @Test
+    void testSetPriceEmptyInput(){
+        a.assertThrows(RecipeException.class, () -> recipe.setPrice(""));
     }
 
     @Test
@@ -191,7 +191,7 @@ public class RecipeTest  {
     }
 
     @Test
-    void testEquals(){
+    void testEqualsValid(){
 //        a.assertEquals(recipe,recipe2);
 //        a.assertEquals(recipe2,recipe);
         recipe2 = recipe;
@@ -199,19 +199,19 @@ public class RecipeTest  {
     }
 
     @Test
-    void testEquals_Null(){
+    void testEqualsNull(){
         recipe2 = null;
         a.assertFalse(recipe.equals(recipe2));
     }
 
     @Test
-    void testEquals_ReturnFalse(){
+    void testEqualsReturnFalse(){
         recipe2.setName("new name");
         a.assertFalse(recipe.equals(recipe2));
     }
 
     @Test
-    void testEquals_getClass() {
+    void testEqualsgetClass() {
 
         Inventory inv = new Inventory();
         a.assertFalse(recipe.equals(inv));

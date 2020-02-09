@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Coffee Maker JUnit" />
         <module name="Coffee-Maker-JUnit" />
+        <module name="Coffee-Maker-JUnit-LATEST" />
       </profile>
     </annotationProcessing>
   </component>

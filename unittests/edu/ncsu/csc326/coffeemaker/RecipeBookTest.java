@@ -1,4 +1,5 @@
 package edu.ncsu.csc326.coffeemaker;
+import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
 import org.junit.jupiter.api.*;
 import static org.hamcrest.Matchers.is;
@@ -50,22 +51,26 @@ public class RecipeBookTest {
     @Test
     void testGetRecipeBooks(){
         Recipe [] recipes = new Recipe[4];
+        recipes[0] = recipeTest1;
+        recipeBook.addRecipe(recipeTest1);
         Assertions.assertArrayEquals( recipes, recipeBook.getRecipes() );
     }
 
     @Test
     void testDeleteRecipe(){
         recipeBook.addRecipe(recipeTest1);
-        recipeBook.addRecipe(recipeTest2);
-        Recipe[] recipes = recipeBook.getRecipes();
         recipeBook.deleteRecipe(0);
-        Recipe recipeTest = recipes[0];
-        Assertions.assertNotSame(recipeTest1, recipeTest);
+        Assertions.assertNotSame(recipeTest1, recipeBook.getRecipes()[0]);
     }
 
     @Test
-    void testDeleteRecipeThatIsNull(){
+    void testDeleteRecipeThatIsEmpty(){
         Assertions.assertNull(recipeBook.deleteRecipe(3));
+    }
+
+    @Test
+    void deleteInvalidRecipe() {
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> recipeBook.deleteRecipe(recipeBook.getRecipes().length + 10));
     }
 
     @Test
@@ -87,6 +92,13 @@ public class RecipeBookTest {
 
     @Test
     void testEditRecipeAtNullPosition() {
+
         Assertions.assertNull(recipeBook.editRecipe(0, recipeTest2));
+    }
+
+    @Test
+    void testEditRecipeWithNullRecipe() {
+        recipeBook.addRecipe(recipeTest1);
+        Assertions.assertNull(recipeBook.editRecipe(0, null));
     }
 }

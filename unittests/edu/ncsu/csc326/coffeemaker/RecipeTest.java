@@ -191,9 +191,18 @@ public class RecipeTest  {
     }
 
     @Test
-    void testEqualsValid(){
+    void testEqualsValid() throws RecipeException {
 //        a.assertEquals(recipe,recipe2);
 //        a.assertEquals(recipe2,recipe);
+        Recipe recipe3 = new Recipe();
+        recipe3.setAmtChocolate("5");
+        recipe3.setAmtCoffee("10");
+        recipe3.setAmtMilk("8");
+        recipe3.setAmtSugar("7");
+        recipe3.setName("name");
+        recipe3.setPrice("50");
+        a.assertEquals(recipe, recipe3);
+
         recipe2 = recipe;
         a.assertEquals(recipe, recipe2);
     }
@@ -211,7 +220,7 @@ public class RecipeTest  {
     }
 
     @Test
-    void testEqualsgetClass() {
+    void testEqualsGetClass() {
 
         Inventory inv = new Inventory();
         a.assertFalse(recipe.equals(inv));

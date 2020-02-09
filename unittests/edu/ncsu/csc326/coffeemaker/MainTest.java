@@ -18,8 +18,8 @@ import static org.mockito.Mockito.*;
 @PrepareForTest(Main.class)
 public class MainTest{
 
-    Assertions a;
-    Main mock;
+    private Assertions a;
+    private Main mock;
 
     @BeforeEach
     void setUp() throws Exception {

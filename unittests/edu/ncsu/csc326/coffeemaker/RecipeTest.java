@@ -9,9 +9,10 @@ import org.junit.jupiter.api.Test;
 
 public class RecipeTest  {
 
-    Recipe recipe;
-    Recipe recipe2;
-    Assertions a;
+    private Recipe recipe;
+    private Recipe recipe2;
+    private Assertions a;
+
     @BeforeEach
     void setUp() throws RecipeException {
         recipe = new Recipe();
@@ -32,12 +33,12 @@ public class RecipeTest  {
     }
 
     @Test
-    void testGetAmtChocolate_PositiveInt(){
+    void testGetAmtChocolatePositiveInt(){
         a.assertEquals(5,recipe.getAmtChocolate());
     }
 
     @Test
-    void testGetAmtChocolate_NegativeInt(){
+    void testGetAmtChocolateNegativeInt(){
         a.assertNotEquals(-5,recipe.getAmtChocolate());
     }
 
@@ -55,6 +56,11 @@ public class RecipeTest  {
     @Test
     void testSetAmtChocolate_Invalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate("Blah"));
+    }
+
+    @Test
+    void testSetAmtChocolateNoInput(){
+        a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate(""));
     }
 
     @Test
@@ -79,6 +85,11 @@ public class RecipeTest  {
     }
 
     @Test
+    void testSetAmtCoffeeEmptyInput(){
+        a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee(""));
+    }
+
+    @Test
     void testGetAmtMilk(){
         a.assertEquals(8,recipe.getAmtMilk());
     }
@@ -100,6 +111,11 @@ public class RecipeTest  {
     }
 
     @Test
+    void testSetAmtMilkEmptyInput(){
+        a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk(""));
+    }
+
+    @Test
     void testGetAmtSugar(){
         a.assertEquals(7,recipe.getAmtSugar());
     }
@@ -118,6 +134,11 @@ public class RecipeTest  {
     @Test
     void testSetAmtSugar_Invalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar("Blah"));
+    }
+
+    @Test
+    void testSetAmtSugarEmptyInput(){
+        a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar(""));
     }
 
     @Test

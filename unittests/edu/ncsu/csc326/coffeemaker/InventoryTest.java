@@ -15,10 +15,10 @@ import org.junit.jupiter.api.Test;
  */
 public class InventoryTest {
 
-	Inventory i;
-	Assertions a;
-	int randNum = -1;
-	Recipe r;
+	private Inventory i;
+	private Assertions a;
+	private int randNum = -1;
+	private Recipe r;
 
 
 	@BeforeEach

@@ -135,8 +135,18 @@ public class CoffeeMakerTest {
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory( "10","10","10","-2"));
     }
     @Test
-    void testAddInventoryWithZero(){
-        Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("0","0","0","0"));
+    void testAddInventoryWithZero() {
+        try {
+            coffeeMaker.addInventory("0", "0", "0", "0");
+        }
+        catch (InventoryException e){
+            e.printStackTrace();
+            Assertions.fail();
+        }
+        Assertions.assertEquals("Coffee: 15\n" +
+                "Milk: 15\n" +
+                "Sugar: 15\n" +
+                "Chocolate: 15\n", coffeeMaker.checkInventory());
     }
 
     @Test

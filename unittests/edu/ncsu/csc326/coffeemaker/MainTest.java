@@ -30,9 +30,9 @@ public class MainTest{
 //        PowerMockito.verifyPrivate(mock, Mockito.times(1).)
     }
 
-    String returnValue(){
-         return "0";
-    }
+//    String returnValue(){
+//         return "0";
+//    }
 
     @AfterEach
     void tearDown() {
@@ -72,13 +72,12 @@ public class MainTest{
     void main() {
     }
 
-    void setInputStream(String input) throws IOException {
-        InputStream inputStream;
-        inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+//    void setInputStream(String input) throws IOException {
+//        InputStream inputStream;
+//        inputStream = new ByteArrayInputStream(input.getBytes());
+//        System.setIn(inputStream);
 
 
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        System.out.println(br.readLine());
-    }
 }

@@ -36,7 +36,9 @@ public class CoffeeMakerTest {
         recipeTest2.setAmtSugar("1");
         recipeTest2.setPrice("50");
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testGetRecipes(){
         coffeeMaker.addRecipe(recipeTest1);
@@ -44,7 +46,9 @@ public class CoffeeMakerTest {
         recipes[0] = recipeTest1;
         Assertions.assertArrayEquals(recipes ,coffeeMaker.getRecipes());
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testDeleteRecipe(){
         coffeeMaker.addRecipe(recipeTest1);
@@ -54,12 +58,16 @@ public class CoffeeMakerTest {
         Recipe recipeTest = recipes[0];
         Assertions.assertNotSame(recipeTest1, recipeTest);
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testDeleteRecipeThatIsNull(){
         Assertions.assertNull(coffeeMaker.deleteRecipe(3));
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testAddRecipe(){
         Recipe[] recipes = coffeeMaker.getRecipes();
@@ -68,28 +76,45 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(recipeTest1, recipeTest);
         Assertions.assertFalse(coffeeMaker.addRecipe(recipeTest1));
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testAddRecipeAddingTheSameRecipe(){
         Recipe[] recipes = coffeeMaker.getRecipes();
         coffeeMaker.addRecipe(recipeTest1);
         Assertions.assertFalse(coffeeMaker.addRecipe(recipeTest1));
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
-    void testEditRecipe(){
-        coffeeMaker.addRecipe(recipeTest1);
-        coffeeMaker.editRecipe(0, recipeTest2);
-        recipeTest2.setName("Coffee");
-        Recipe[] recipes = coffeeMaker.getRecipes();
-        Assertions.assertEquals(recipes[0], recipeTest2);
-    }
+    void testEditRecipe() throws RecipeException {
 
+        coffeeMaker.addRecipe(recipeTest1);
+        Recipe testRecipe = new Recipe();
+        testRecipe.setName("Tea");
+        testRecipe.setAmtChocolate("0");
+        testRecipe.setAmtCoffee("3");
+        testRecipe.setAmtMilk("1");
+        testRecipe.setAmtSugar("1");
+        testRecipe.setPrice("50");
+        coffeeMaker.editRecipe(0, recipeTest2);
+        Recipe[] recipes = new Recipe[4];
+        recipes[0] = testRecipe;
+        Assertions.assertArrayEquals(recipes, coffeeMaker.getRecipes());
+        Assertions.assertSame(testRecipe, coffeeMaker.getRecipes()[0]);
+    }
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testEditRecipeAtNullPosition() {
         Assertions.assertNull(coffeeMaker.editRecipe(0, recipeTest2));
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testCheckInventory(){
         inventory.setMilk(10);
@@ -101,12 +126,16 @@ public class CoffeeMakerTest {
                 "Sugar: 10\n" +
                 "Chocolate: 10\n" , coffeeMaker.checkInventory());
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testCheckInventoryNotNull(){
         Assertions.assertNotNull(coffeeMaker.checkInventory());
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testAddInventory(){
         try {
@@ -120,7 +149,9 @@ public class CoffeeMakerTest {
             e.getMessage();
         }
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testAddInventoryWithInvalidData(){
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("a","","test",null));
@@ -134,6 +165,9 @@ public class CoffeeMakerTest {
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory("10","10","-2","10"));
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory( "10","10","10","-2"));
     }
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testAddInventoryWithZero() {
         try {
@@ -148,7 +182,9 @@ public class CoffeeMakerTest {
                 "Sugar: 15\n" +
                 "Chocolate: 15\n", coffeeMaker.checkInventory());
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testMakeCoffee() throws RecipeException {
         recipeTest1.setPrice("50");
@@ -156,20 +192,29 @@ public class CoffeeMakerTest {
         int testChange = coffeeMaker.makeCoffee(0,100);
         Assertions.assertEquals(50, testChange);
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testMakeCoffeeNoRecipe(){
         recipeBook.getRecipes()[0] = null;
         int testChange = coffeeMaker.makeCoffee(0,100);
         Assertions.assertEquals(100, testChange);
-    }
-
-    @Test
-    void testMakeCoffeeInvalidRecipeInput(){
-        int testChange = coffeeMaker.makeCoffee(10,100);
+        recipeBook.getRecipes()[0] = new Recipe();
+        testChange = coffeeMaker.makeCoffee(0,100);
         Assertions.assertEquals(100, testChange);
     }
-
+    /**
+     * @Test Case ID:
+     */
+    @Test
+    void testMakeCoffeeInvalidRecipeInput(){
+        int testChange = coffeeMaker.makeCoffee(coffeeMaker.getRecipes().length +1,100);
+        Assertions.assertEquals(100, testChange);
+    }
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testMakeCoffeeInvalidPriceInput() throws RecipeException {
         recipeTest1.setPrice("50");
@@ -177,7 +222,9 @@ public class CoffeeMakerTest {
         int testChange = coffeeMaker.makeCoffee(0,-3);
         Assertions.assertEquals(0, testChange);
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testMakeCoffeeInvalidSmallerPriceInput() throws RecipeException{
         recipeTest1.setPrice("50");
@@ -186,7 +233,9 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(10, testChange);
 
     }
-
+    /**
+     * @Test Case ID:
+     */
     @Test
     void testMakeCoffeeNoInventory() throws RecipeException{
         recipeTest1.setPrice("50");

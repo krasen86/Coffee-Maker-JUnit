@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  *
  * @author unitTesters
- *
+ *zz
  * Unit tests for Inventory class.
  */
 public class InventoryTest {
@@ -39,17 +39,26 @@ public class InventoryTest {
 
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void getChocolate() {
 		a.assertEquals(15, i.getChocolate());
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void setChocolate() {
 		i.setChocolate(randNum);
 		a.assertEquals(randNum, i.getChocolate());
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addChocolate() {
 		try {
@@ -61,27 +70,41 @@ public class InventoryTest {
 		}
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addNegativeToChocolate() {
 		a.assertThrows(InventoryException.class, () -> i.addChocolate(-1+""));
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addInvalidToChocolate() {
 		a.assertThrows(InventoryException.class, () -> i.addChocolate("Seven"));
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void getCoffee() {
 		a.assertEquals(15, i.getCoffee());
 	}
 
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void setCoffee() {
 		i.setCoffee(randNum);
 		a.assertEquals(randNum, i.getCoffee());
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addCoffee() {
 		try {
@@ -92,28 +115,38 @@ public class InventoryTest {
 			a.fail("Threw InventoryException error, when presented with a positive integer");
 		}
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addNegativeToCoffee() {
 		a.assertThrows(InventoryException.class, () -> i.addCoffee(-1+""));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addInvalidToCoffee() {
 		a.assertThrows(InventoryException.class, () -> i.addCoffee("Seven"));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void getMilk() {
 		a.assertEquals(15, i.getMilk());
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void setMilk() {
 		i.setMilk(randNum);
 		a.assertEquals(randNum, i.getMilk());
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addMilk() {
 		try {
@@ -124,28 +157,38 @@ public class InventoryTest {
 			a.fail("Threw InventoryException error, when presented with a positive integer");
 		}
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addNegativeToMilk() {
 		a.assertThrows(InventoryException.class, () -> i.addMilk(-1+""));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addInvalidToMilk() {
 		a.assertThrows(InventoryException.class, () -> i.addMilk("Seven"));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void getSugar() {
 		a.assertEquals(15, i.getSugar());
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void setSugar() {
 		i.setSugar(randNum);
 		a.assertEquals(randNum, i.getSugar());
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addSugar() {
 		try {
@@ -156,17 +199,23 @@ public class InventoryTest {
 			a.fail("Threw InventoryException error, when presented with a positive integer");
 		}
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addNegativeToSugar() {
 		a.assertThrows(InventoryException.class, () -> i.addSugar(-1+""));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void addInvalidToSugar() {
 		a.assertThrows(InventoryException.class, () -> i.addSugar("Seven"));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void enoughIngredients() throws RecipeException {
 
@@ -187,11 +236,12 @@ public class InventoryTest {
 		r.setAmtSugar("16");
 		a.assertFalse(i.enoughIngredients(r));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void useIngredients() {
 		a.assertTrue(i.useIngredients(r));
-
 		a.assertEquals(5, i.getChocolate());
 		a.assertEquals(5, i.getCoffee());
 		a.assertEquals(5, i.getMilk());
@@ -199,7 +249,9 @@ public class InventoryTest {
 
 		a.assertFalse(i.useIngredients(r));
 	}
-
+	/**
+	 * @Test Case ID:
+	 */
 	@Test
 	void testToString() {
 		a.assertEquals("Coffee: 15\n" +

@@ -40,7 +40,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 62
 	 */
 	@Test
 	void getChocolate() {
@@ -48,7 +48,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 63
 	 */
 	@Test
 	void setChocolate() {
@@ -57,7 +57,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 64
 	 */
 	@Test
 	void addChocolate() {
@@ -71,7 +71,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 65
 	 */
 	@Test
 	void addNegativeToChocolate() {
@@ -79,7 +79,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 66
 	 */
 	@Test
 	void addInvalidToChocolate() {
@@ -87,7 +87,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 67
 	 */
 	@Test
 	void getCoffee() {
@@ -95,7 +95,7 @@ public class InventoryTest {
 	}
 
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 68
 	 */
 	@Test
 	void setCoffee() {
@@ -103,7 +103,7 @@ public class InventoryTest {
 		a.assertEquals(randNum, i.getCoffee());
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 69
 	 */
 	@Test
 	void addCoffee() {
@@ -116,28 +116,28 @@ public class InventoryTest {
 		}
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 70
 	 */
 	@Test
 	void addNegativeToCoffee() {
 		a.assertThrows(InventoryException.class, () -> i.addCoffee(-1+""));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 71
 	 */
 	@Test
 	void addInvalidToCoffee() {
 		a.assertThrows(InventoryException.class, () -> i.addCoffee("Seven"));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 72
 	 */
 	@Test
 	void getMilk() {
 		a.assertEquals(15, i.getMilk());
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 73
 	 */
 	@Test
 	void setMilk() {
@@ -145,7 +145,7 @@ public class InventoryTest {
 		a.assertEquals(randNum, i.getMilk());
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 74
 	 */
 	@Test
 	void addMilk() {
@@ -158,28 +158,28 @@ public class InventoryTest {
 		}
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 75
 	 */
 	@Test
 	void addNegativeToMilk() {
 		a.assertThrows(InventoryException.class, () -> i.addMilk(-1+""));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 76
 	 */
 	@Test
 	void addInvalidToMilk() {
 		a.assertThrows(InventoryException.class, () -> i.addMilk("Seven"));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 77
 	 */
 	@Test
 	void getSugar() {
 		a.assertEquals(15, i.getSugar());
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 78
 	 */
 	@Test
 	void setSugar() {
@@ -187,7 +187,7 @@ public class InventoryTest {
 		a.assertEquals(randNum, i.getSugar());
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 79
 	 */
 	@Test
 	void addSugar() {
@@ -200,21 +200,21 @@ public class InventoryTest {
 		}
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 80
 	 */
 	@Test
 	void addNegativeToSugar() {
 		a.assertThrows(InventoryException.class, () -> i.addSugar(-1+""));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 81
 	 */
 	@Test
 	void addInvalidToSugar() {
 		a.assertThrows(InventoryException.class, () -> i.addSugar("Seven"));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 82
 	 */
 	@Test
 	void enoughIngredients() throws RecipeException {
@@ -237,7 +237,7 @@ public class InventoryTest {
 		a.assertFalse(i.enoughIngredients(r));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 83
 	 */
 	@Test
 	void useIngredients() {
@@ -250,7 +250,7 @@ public class InventoryTest {
 		a.assertFalse(i.useIngredients(r));
 	}
 	/**
-	 * @Test Case ID:
+	 * @Test Case ID: 84
 	 */
 	@Test
 	void testToString() {

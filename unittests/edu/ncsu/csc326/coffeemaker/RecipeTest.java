@@ -42,9 +42,13 @@ public class RecipeTest  {
      * @Test Case ID:
      */
     @Test
-    void testSetAmtChocolate() throws RecipeException {
-        recipe.setAmtChocolate("12");
-        a.assertEquals(12,recipe.getAmtChocolate());
+    void testSetAmtChocolate() {
+        try {
+            recipe.setAmtChocolate("12");
+            a.assertEquals(12, recipe.getAmtChocolate());
+        } catch (RecipeException e) {
+            a.fail("RecipeException was thrown, due to an invalid input!");
+        }
     }
     /**
      * @Test Case ID:
@@ -78,9 +82,13 @@ public class RecipeTest  {
      * @Test Case ID:
      */
     @Test
-    void testSetAmtCoffee() throws RecipeException {
-        recipe.setAmtCoffee("17");
-        a.assertEquals(17,recipe.getAmtCoffee());
+    void testSetAmtCoffee() {
+        try {
+            recipe.setAmtCoffee("17");
+            a.assertEquals(17, recipe.getAmtCoffee());
+        } catch (RecipeException e) {
+            a.fail("RecipeException was thrown, due to an invalid input!");
+        }
     }
     /**
      * @Test Case ID:
@@ -114,9 +122,13 @@ public class RecipeTest  {
      * @Test Case ID:
      */
     @Test
-    void testSetAmtMilk() throws RecipeException {
+    void testSetAmtMilk() {
+        try {
         recipe.setAmtMilk("9");
         a.assertEquals(9,recipe.getAmtMilk());
+        } catch (RecipeException e) {
+            a.fail("RecipeException was thrown, due to an invalid input!");
+        }
     }
     /**
      * @Test Case ID:
@@ -150,9 +162,13 @@ public class RecipeTest  {
      * @Test Case ID:
      */
     @Test
-    void testSetAmtSugar() throws RecipeException {
-        recipe.setAmtSugar("11");
-        a.assertEquals(11,recipe.getAmtSugar());
+    void testSetAmtSugar() {
+        try {
+            recipe.setAmtSugar("11");
+            a.assertEquals(11, recipe.getAmtSugar());
+        } catch (RecipeException e) {
+            a.fail("RecipeException was thrown, due to an invalid input!");
+        }
     }
     /**
      * @Test Case ID:
@@ -209,9 +225,13 @@ public class RecipeTest  {
      * @Test Case ID: 25
      */
     @Test
-    void testSetPrice() throws RecipeException {
+    void testSetPrice() {
+        try {
         recipe.setPrice("55");
         a.assertEquals(55,recipe.getPrice());
+        } catch (RecipeException e) {
+            a.fail("RecipeException was thrown, due to an invalid input!");
+        }
     }
     /**
      * @Test Case ID: 26

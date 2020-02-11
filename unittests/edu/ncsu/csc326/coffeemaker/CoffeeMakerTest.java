@@ -37,7 +37,7 @@ public class CoffeeMakerTest {
         recipeTest2.setPrice("50");
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 44
      */
     @Test
     void testGetRecipes(){
@@ -47,7 +47,7 @@ public class CoffeeMakerTest {
         Assertions.assertArrayEquals(recipes ,coffeeMaker.getRecipes());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 45
      */
     @Test
     void testDeleteRecipe(){
@@ -59,14 +59,14 @@ public class CoffeeMakerTest {
         Assertions.assertNotSame(recipeTest1, recipeTest);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 46
      */
     @Test
     void testDeleteRecipeThatIsNull(){
         Assertions.assertNull(coffeeMaker.deleteRecipe(3));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 47
      */
     @Test
     void testAddRecipe(){
@@ -77,7 +77,7 @@ public class CoffeeMakerTest {
         Assertions.assertFalse(coffeeMaker.addRecipe(recipeTest1));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 48
      */
     @Test
     void testAddRecipeAddingTheSameRecipe(){
@@ -86,7 +86,7 @@ public class CoffeeMakerTest {
         Assertions.assertFalse(coffeeMaker.addRecipe(recipeTest1));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 49
      */
     @Test
     void testEditRecipe() throws RecipeException {
@@ -106,14 +106,14 @@ public class CoffeeMakerTest {
         Assertions.assertSame(testRecipe, coffeeMaker.getRecipes()[0]);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 50
      */
     @Test
     void testEditRecipeAtNullPosition() {
         Assertions.assertNull(coffeeMaker.editRecipe(0, recipeTest2));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 51
      */
     @Test
     void testCheckInventory(){
@@ -127,14 +127,14 @@ public class CoffeeMakerTest {
                 "Chocolate: 10\n" , coffeeMaker.checkInventory());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 52
      */
     @Test
     void testCheckInventoryNotNull(){
         Assertions.assertNotNull(coffeeMaker.checkInventory());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 53
      */
     @Test
     void testAddInventory(){
@@ -150,7 +150,7 @@ public class CoffeeMakerTest {
         }
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 54
      */
     @Test
     void testAddInventoryWithInvalidData(){
@@ -166,7 +166,7 @@ public class CoffeeMakerTest {
         Assertions.assertThrows(InventoryException.class, () -> coffeeMaker.addInventory( "10","10","10","-2"));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 55
      */
     @Test
     void testAddInventoryWithZero() {
@@ -183,7 +183,7 @@ public class CoffeeMakerTest {
                 "Chocolate: 15\n", coffeeMaker.checkInventory());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 56
      */
     @Test
     void testMakeCoffee() throws RecipeException {
@@ -193,7 +193,7 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(50, testChange);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 57
      */
     @Test
     void testMakeCoffeeNoRecipe(){
@@ -205,7 +205,7 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(100, testChange);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 58
      */
     @Test
     void testMakeCoffeeInvalidRecipeInput(){
@@ -213,7 +213,7 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(100, testChange);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 59
      */
     @Test
     void testMakeCoffeeInvalidPriceInput() throws RecipeException {
@@ -223,7 +223,7 @@ public class CoffeeMakerTest {
         Assertions.assertEquals(0, testChange);
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID:60
      */
     @Test
     void testMakeCoffeeInvalidSmallerPriceInput() throws RecipeException{
@@ -234,7 +234,7 @@ public class CoffeeMakerTest {
 
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 61
      */
     @Test
     void testMakeCoffeeNoInventory() throws RecipeException{

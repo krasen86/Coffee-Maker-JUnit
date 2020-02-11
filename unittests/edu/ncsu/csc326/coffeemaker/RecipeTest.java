@@ -32,14 +32,14 @@ public class RecipeTest  {
         recipe2.setPrice("50");
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 1
      */
     @Test
     void testGetAmtChocolatePositiveInt(){
         a.assertEquals(5,recipe.getAmtChocolate());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 2
      */
     @Test
     void testSetAmtChocolate() {
@@ -51,35 +51,35 @@ public class RecipeTest  {
         }
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID:3
      */
     @Test
     void testSetAmtChocolateNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate(-1+""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 4
      */
     @Test
     void testSetAmtChocolateInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate("Blah"));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 5
      */
     @Test
     void testSetAmtChocolateNoInput(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtChocolate(""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 6
      */
     @Test
     void testGetAmtCoffee(){
         a.assertEquals(10,recipe.getAmtCoffee());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 7
      */
     @Test
     void testSetAmtCoffee() {
@@ -91,35 +91,35 @@ public class RecipeTest  {
         }
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 8
      */
     @Test
     void testSetAmtCoffeeNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee(-1+""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 9
      */
     @Test
     void testSetAmtCoffeeInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee("Blah"));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 10
      */
     @Test
     void testSetAmtCoffeeEmptyInput(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtCoffee(""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 11
      */
     @Test
     void testGetAmtMilk(){
         a.assertEquals(8,recipe.getAmtMilk());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 12
      */
     @Test
     void testSetAmtMilk() {
@@ -131,35 +131,35 @@ public class RecipeTest  {
         }
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 13
      */
     @Test
     void testSetAmtMilkNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk(-1+""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 14
      */
     @Test
     void testSetAmtMilkInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk("Blah"));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 15
      */
     @Test
     void testSetAmtMilkEmptyInput(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtMilk(""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 16
      */
     @Test
     void testGetAmtSugar(){
         a.assertEquals(7,recipe.getAmtSugar());
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 17
      */
     @Test
     void testSetAmtSugar() {
@@ -171,21 +171,21 @@ public class RecipeTest  {
         }
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 18
      */
     @Test
     void testSetAmtSugarNegativeNumber(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar(-1+""));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 19
      */
     @Test
     void testSetAmtSugarInvalid(){
         a.assertThrows(RecipeException.class, () -> recipe.setAmtSugar("Blah"));
     }
     /**
-     * @Test Case ID:
+     * @Test Case ID: 20
      */
     @Test
     void testSetAmtSugarEmptyInput(){

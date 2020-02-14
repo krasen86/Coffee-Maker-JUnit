@@ -140,13 +140,14 @@ public class CoffeeMakerTest {
     void testAddInventory(){
         try {
             coffeeMaker.addInventory("20", "20", "20", "20");
-            Assertions.assertEquals("Coffee: 20\n" +
-                    "Milk: 20\n" +
-                    "Sugar: 20\n" +
-                    "Chocolate: 20\n", coffeeMaker.checkInventory());
+            Assertions.assertEquals("Coffee: 35\n" +
+                    "Milk: 35\n" +
+                    "Sugar: 35\n" +
+                    "Chocolate: 35\n", coffeeMaker.checkInventory());
         }
         catch (InventoryException e){
             e.getMessage();
+            Assertions.fail("Adding valid inventory resulted in an exception being thrown.");
         }
     }
     /**

@@ -1,0 +1,5 @@
+All the unit tests were written with JUnitTest, and have @test annotation.
+In order to run a test, you can open one of the ClassNameTest files, and then click on the 'bubble' in the margin, next to the method signature.
+
+In order to run all the CoffeeMaker unit test, you should right click on the edu.ncsu.csc326.coffeemaker package, and then select "Run 'Tests in 'edu.ncsu.csc326.coffeemaker'' with Coverage"
+

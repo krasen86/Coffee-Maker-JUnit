@@ -64,11 +64,13 @@ public class RecipeBookTest {
     /**
      * @Test Case ID: 38
      */
+
     @Test
     void testDeleteRecipe(){
         recipeBook.addRecipe(recipeTest1);
         recipeBook.deleteRecipe(0);
         Assertions.assertNotSame(recipeTest1, recipeBook.getRecipes()[0]);
+        Assertions.assertNull(recipeBook.getRecipes()[0]);
     }
     /**
      * @Test Case ID: 39

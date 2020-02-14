@@ -75,6 +75,7 @@ public class CoffeeMaker {
      * Returns the inventory of the coffee maker
      * @return Inventory
      */
+
     public synchronized String checkInventory() {
         return inventory.toString();
     }

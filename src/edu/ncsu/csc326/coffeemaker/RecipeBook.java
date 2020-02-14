@@ -63,7 +63,6 @@ public class RecipeBook {
 			return null;
 		}
 	}
-	
 	/**
 	 * Returns the name of the recipe edited at the position specified
 	 * and null if the recipe does not exist.

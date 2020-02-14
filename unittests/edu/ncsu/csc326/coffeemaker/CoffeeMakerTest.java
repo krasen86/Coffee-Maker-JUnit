@@ -52,11 +52,9 @@ public class CoffeeMakerTest {
     @Test
     void testDeleteRecipe(){
         coffeeMaker.addRecipe(recipeTest1);
-        coffeeMaker.addRecipe(recipeTest2);
-        Recipe[] recipes = coffeeMaker.getRecipes();
         coffeeMaker.deleteRecipe(0);
-        Recipe recipeTest = recipes[0];
-        Assertions.assertNotSame(recipeTest1, recipeTest);
+        Assertions.assertNotSame(recipeTest1, coffeeMaker.getRecipes()[0]);
+        Assertions.assertNull(coffeeMaker.getRecipes()[0]);
     }
     /**
      * @Test Case ID: 46

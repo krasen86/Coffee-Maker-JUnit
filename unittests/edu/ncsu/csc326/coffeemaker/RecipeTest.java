@@ -274,8 +274,7 @@ public class RecipeTest  {
      */
     @Test
     void testEqualsValid() throws RecipeException {
-//        a.assertEquals(recipe,recipe2);
-//        a.assertEquals(recipe2,recipe);
+
         Recipe recipe3 = new Recipe();
         recipe3.setAmtChocolate("5");
         recipe3.setAmtCoffee("10");
